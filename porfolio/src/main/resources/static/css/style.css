@@ -1,0 +1,146 @@
+/*Generic Styling across multiple pages*/
+body {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+
+.pageBanner {
+	width:100%;
+	padding:1em;
+	text-align:center;
+	height:auto;
+	background-color:black;
+	color:white;
+	font-size:2em;
+}
+
+.pageBanner h1 {
+	position:relative;
+	top:10%;
+	padding:2em 0;
+}
+
+.pageBanner span {
+	color:green;
+}
+
+/*Styling for ABout Me Page*/
+.overView {
+	padding:1em;
+}
+
+.overView img {
+	border-radius:100%;
+	max-width:100%;
+}
+
+.attributes {
+	text-align:center;
+	padding:1em;
+}
+
+.attributes h2,
+.hobbys h2 {
+	margin:1em;
+}
+
+.attributeBox {
+	padding:1em;
+}
+
+.attributeBox i {
+	font-size:6vw
+}
+
+.attributeBox p,
+.attributeBox h4 {
+	padding: 0 0 0 16px;;
+}
+
+.hobbys {
+	text-align:center;
+}
+
+.hobbys i {
+	font-size:4vw;
+}
+
+/*Styling for My Skills Page*/
+/*Flip cards*/
+.flip-card {
+  background-color: transparent;
+  height: auto;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: transparent;
+  width: 100%;
+  height: 20em;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+.skillBox {
+	background-color:red;
+	height:auto;
+	padding:1em;
+}
+
+.skillBox img{
+	max-width:100%;
+	height:10em;
+	border-radius:100%;
+}
+
+/*Footer*/
+#footer {
+    background-color: #525252;
+    padding:.5em;
+    color: #fafafa;
+    font-size:1.5em;
+    margin: 1em 0 0 0;
+    width:100%;
+}
+
+#footer a {
+	color:white;
+	transition:1s ease-in-ease-out 1s;
+}
+
+#footer a:hover{
+	color:red;
+}

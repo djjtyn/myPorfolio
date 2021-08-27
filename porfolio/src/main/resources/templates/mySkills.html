@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include = "fragments :: headElement">
+	<title>MySkills</title>
+</head>
+<body>
+	<!--Navigation Bar-->
+	<div th:insert = "fragments :: navBar"></div>
+	<div class = "pageBanner">
+		<h1>I work with <span class = "typedEffect"></span></h1>
+	</div>
+	<!--Each span will be iterated through in the page banner-->
+	<div class = "typedData">
+		<span>AWS</span><span>Java</span><span>JavaScript</span><span>Python</span><span>HTML</span><span>CSS</span><span>jQuery</span><span>MySQL</span>
+		<span>NoSQL</span><span>Django</span><span>Spring Boot</span><span>Bootstrap</span><span>Git</span><span>GitHub</span><span>Jinja</span>
+		<span>Thymeleaf</span><span>Jinja</span><span>API's</span><span>Flask</span><span>gRPC</span><span>MQTT</span><span>Heroku</span>
+	</div>
+	<div class = "container">
+		<div class = "row">
+			<div class = "skillBox">
+				<div class = "col-md-3">
+					<div class="flip-card">
+	  					<div class="flip-card-inner">
+	    					<div class="flip-card-front">
+	    						<h2>AWS</h2>
+	      						<img src="image/aws.jpg" alt="awsLogo">
+	    					</div>
+					    	<div class="flip-card-back">
+					      		<h2>AWS</h2>
+					      		<p>AWS (Amazon Web Services) is a cloud platform provided by Amazon which offers a mixture of Platform as a Service(PAAS), 
+					      		Infrastructure as a Service(IAAS) and Software as a Service(SAAS) capabilities. I have experience in building projects which have 
+					      		utilised an AWS S3 and RDS 
+								services.</p>
+								<ul>
+									<li><strong>AWS S3: </strong> This is a service which provides object storage</li>
+									<li><strong>AWS RDS: </strong> This is a service that provides hosted relational database capabilities.</li>
+								</ul>
+					    	</div>
+	  					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:insert = "fragments :: footer"></div>
+	<!--JavaScript Scripts-->
+	<div th:insert = "fragments :: jsScripts"></div>
+</body>
+</html>
