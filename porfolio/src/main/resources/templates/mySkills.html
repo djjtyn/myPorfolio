@@ -1,49 +1,368 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:include = "fragments :: headElement">
-	<title>MySkills</title>
+<head th:include="fragments :: headElement">
+<title>MySkills</title>
 </head>
 <body>
 	<!--Navigation Bar-->
-	<div th:insert = "fragments :: navBar"></div>
-	<div class = "pageBanner">
-		<h1>I work with <span class = "typedEffect"></span></h1>
+	<div th:insert="fragments :: navBar"></div>
+	<div class="pageBanner">
+		<h1>
+			I work with <span class="typedEffect"></span>
+		</h1>
 	</div>
 	<!--Each span will be iterated through in the page banner-->
-	<div class = "typedData">
+	<div class="typedData">
 		<span>AWS</span><span>Java</span><span>JavaScript</span><span>Python</span><span>HTML</span><span>CSS</span><span>jQuery</span><span>MySQL</span>
-		<span>NoSQL</span><span>Django</span><span>Spring Boot</span><span>Bootstrap</span><span>Git</span><span>GitHub</span><span>Jinja</span>
+		<span>NoSQL</span><span>Django</span><span>Spring Boot</span><span>Bootstrap</span><span>Git</span><span>GitHub</span><span>Flask</span>
 		<span>Thymeleaf</span><span>Jinja</span><span>API's</span><span>Flask</span><span>gRPC</span><span>MQTT</span><span>Heroku</span>
 	</div>
-	<div class = "container">
-		<div class = "row">
-			<div class = "skillBox">
-				<div class = "col-md-3">
-					<div class="flip-card">
-	  					<div class="flip-card-inner">
-	    					<div class="flip-card-front">
-	    						<h2>AWS</h2>
-	      						<img src="image/aws.jpg" alt="awsLogo">
-	    					</div>
-					    	<div class="flip-card-back">
-					      		<h2>AWS</h2>
-					      		<p>AWS (Amazon Web Services) is a cloud platform provided by Amazon which offers a mixture of Platform as a Service(PAAS), 
-					      		Infrastructure as a Service(IAAS) and Software as a Service(SAAS) capabilities. I have experience in building projects which have 
-					      		utilised an AWS S3 and RDS 
-								services.</p>
-								<ul>
-									<li><strong>AWS S3: </strong> This is a service which provides object storage</li>
-									<li><strong>AWS RDS: </strong> This is a service that provides hosted relational database capabilities.</li>
-								</ul>
-					    	</div>
-	  					</div>
+	<div class="container">
+		<div class="row cardRow">
+			<div class="col-sm-3">
+				<div class="card card-flip">
+					<div class="card-front">
+						<div class="card-body">
+							<h2>Amazon RDS</h2>
+							<img src="image/rds.jpg" alt="amazonRDSLogo">
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+					<div class="card-back">
+						<div class="card-body">
+							<h2>Amazon RDS</h2>
+							<p class="fw-bold">What is it?</p>
+							<p>
+								<span class="fw-bold">Amazon RDS</span> is an acronym for Amazon
+								Relational Database Service. It is a service provided by <span
+									class="fw-bold">Amazon Web Services (AWS)</span>. It allows a
+								scalable relational database to be hosted in the cloud. The
+								database can be queried as if it is stored locally.
+							</p>
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
 					</div>
 				</div>
+				<br>
+			</div>
+			<div class="col-sm-3">
+				<div class="card card-flip">
+					<div class="card-front">
+						<div class="card-body">
+							<h2>Amazon S3</h2>
+							<img src="image/s3.jpg" alt="amazonS3Logo">
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+					<div class="card-back">
+						<div class="card-body">
+							<h2>Amazon S3</h2>
+							<p class="fw-bold">What is it?</p>
+							<p>
+								<span class="fw-bold">Amazon S3</span> is an acronym for Amazon
+								Simple Storage Service. It is a service provided by <span
+									class="fw-bold">Amazon Web Services (AWS)</span>. It allows
+								objects to be stored in scalable storage area's hosted in the
+								cloud.
+							</p>
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+			</div>
+			<div class="col-sm-3">
+				<div class="card card-flip">
+					<div class="card-front">
+						<div class="card-body">
+							<h2>API</h2>
+							<img src="image/Api.jpg" alt="apiImage">
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+					<div class="card-back">
+						<div class="card-body">
+							<h2>API</h2>
+							<p class="fw-bold">What is it?</p>
+							<p>
+								<span class="fw-bold">API</span> is an acronym for Application
+								Programming Interface. An API is a software intermediary that
+								allows two separate applications to communicate with each other
+								via requests and responses which transfer data.
+							</p>
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+			</div>
+			<div class="col-sm-3">
+				<div class="card card-flip">
+					<div class="card-front">
+						<div class="card-body">
+							<h2>Bootstrap</h2>
+							<img src="image/bootstrap.jpeg" alt="bootstrapLogo">
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+					<div class="card-back">
+						<div class="card-body">
+							<h2 class="card-title">Bootstrap</h2>
+							<p>
+								<span class="fw-bold">Bootstrap</span> is a HTML, CSS and
+								JavaScript framework. Bootstrap is a great framework for
+								developing responsive and mobile first website's
+							</p>
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
 			</div>
 		</div>
-	</div>
-	<div th:insert = "fragments :: footer"></div>
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="card card-flip">
+					<div class="card-front">
+						<div class="card-body">
+							<h2>CSS</h2>
+							<img src="image/CSS.jpg" alt="cssLogoImage">
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+					<div class="card-back">
+						<div class="card-body">
+							<h2>CSS</h2>
+							<p class="fw-bold">What is it?</p>
+							<p>
+								<span class="fw-bold">CSS</span> is an acronym for Cascading
+								Style Sheets. It is used to provide the styling of elements on a
+								web page.
+							</p>
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+			</div>
+			<div class="col-sm-3">
+				<div class="card card-flip">
+					<div class="card-front">
+						<div class="card-body">
+							<h2>Django</h2>
+							<img src="image/django.jpeg" alt="djangoLogoImage">
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+					<div class="card-back">
+						<div class="card-body">
+							<h2>Django</h2>
+							<p class="fw-bold">What is it?</p>
+							<p>
+								<span class="fw-bold">Django</span> is a Python full stack web
+								framework which includes components used for authentication, URL
+								routing, template engines, object relational mapping and
+								database schema migrations.
+							</p>
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+			</div>
+			<div class="col-sm-3">
+				<div class="card card-flip">
+					<div class="card-front">
+						<div class="card-body">
+							<h2>Flask</h2>
+							<img src="image/flask.jpg" alt="flaskLogomage">
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+					<div class="card-back">
+						<div class="card-body">
+							<h2>Flask</h2>
+							<p class="fw-bold">What is it?</p>
+							<p>
+								<span class="fw-bold">Flask</span> is a Python micro web
+								framework.
+							</p>
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+			</div>
+			<div class="col-sm-3">
+				<div class="card card-flip">
+					<div class="card-front">
+						<div class="card-body">
+							<h2>Git</h2>
+							<img src="image/git.jpg" alt="gitLogoImage">
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+					<div class="card-back">
+						<div class="card-body">
+							<h2>Git</h2>
+							<p class="fw-bold">What is it?</p>
+							<p>
+								<span class="fw-bold">Git</span> is a version control system
+								which allows an application's code base to be reverted back to a
+								previous state.
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="card card-flip">
+					<div class="card-front">
+						<div class="card-body">
+							<h2>Github</h2>
+							<img src="image/gitHub.jpg" alt="gitHubLogoImage">
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+					<div class="card-back">
+						<div class="card-body">
+							<h2>Github</h2>
+							<p class="fw-bold">What is it?</p>
+							<p>
+								<span class="fw-bold">Github</span> is a hosted repository for
+								git version controlling.
+							</p>
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+			</div>
+			<div class="col-sm-3">
+				<div class="card card-flip">
+					<div class="card-front">
+						<div class="card-body">
+							<h2>Heroku</h2>
+							<img src="image/heroku.jpg" alt="herokuLogoImage">
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+					<div class="card-back">
+						<div class="card-body">
+							<h2>Heroku</h2>
+							<p class="fw-bold">What is it?</p>
+							<p>
+								<span class="fw-bold">Heroku</span> is a hosted platform which
+								provides services to deploy, manage and scale applications.
+							</p>
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+			</div>
+			<div class="col-sm-3">
+				<div class="card card-flip">
+					<div class="card-front">
+						<div class="card-body">
+							<h2>HTML</h2>
+							<img src="image/html.jpg" alt="htmlLogoImage">
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+					<div class="card-back">
+						<div class="card-body">
+							<h2>HTML</h2>
+							<p class="fw-bold">What is it?</p>
+							<p>
+								<span class="fw-bold">HTML</span> is an acronym for Hyper Text
+								Markup Language. HTML provides the structure for web pages and
+								consists of various elements which have different attributes.
+							</p>
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+			</div>
+			<div class="col-sm-3">
+				<div class="card card-flip">
+					<div class="card-front">
+						<div class="card-body">
+							<h2>Java</h2>
+							<img src="image/java.jpg" alt="javaLogoImage">
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+					<div class="card-back">
+						<div class="card-body">
+							<h2>Java</h2>
+							<p class="fw-bold">What is it?</p>
+							<p>
+								<span class="fw-bold">Java</span> is a cross-platform class
+								based object orientated programming language.
+							</p>
+							<div class="buttonContainer d-md-none">
+								<button class="cardButton">Flip</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+			</div>
+		</div>
+		</div>
+	<div th:insert="fragments :: footer"></div>
 	<!--JavaScript Scripts-->
-	<div th:insert = "fragments :: jsScripts"></div>
+	<div th:insert="fragments :: jsScripts"></div>
 </body>
 </html>
