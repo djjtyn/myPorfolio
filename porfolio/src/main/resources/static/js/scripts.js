@@ -9,16 +9,15 @@ $( document ).ready(function() {
 		shuffle: true,
 	});
 	
-	//Code below will allow skill cards to be flipped on small screen sizes
-
-	
-	//Call the function to display bubbles
-	//setInterval(createBubbles, 50);
+	//Code below allows form to be submitted when a filter option is selected from the drop down on the myskills page 
+	$("#filterSkills").on("change", function(){
+		$(".skillFilter").submit();
+	})
 });
 
 
 //Code below will allow bubble effect to be displayed
-function createBubbles(){
+/*function createBubbles(){
 	const container = document.querySelector(".container");
 	const bubble = document.createElement("span");
 	bubble.classList.add("bubble");
@@ -30,4 +29,4 @@ function createBubbles(){
 	setTimeout( () => {
 		bubble.remove();
 	}, 4000);
-}
+}*/

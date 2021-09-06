@@ -18,7 +18,7 @@ body {
 .pageBanner h1 {
 	position:relative;
 	top:10%;
-	padding:2em 0;
+	padding:4em 0;
 }
 
 .pageBanner span {
@@ -96,9 +96,15 @@ body {
 }
 
 /*Styling for My Skills Page*/
-.cardRow {
-	height:auto;
+/*Filter Skills Area*/
+.skillFilter {
+    text-align: center;
+    position: absolute;
+    top: 50%;
 }
+
+
+
 
 /*Flip cards*/
 .card-flip > div {
