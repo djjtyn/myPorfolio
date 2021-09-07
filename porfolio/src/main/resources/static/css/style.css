@@ -25,6 +25,15 @@ body {
 	color:green;
 }
 
+.pageMessage {
+	position:absolute;
+	width:100%;
+	opacity: 0.5;
+	top:1em;
+	background-color:black;
+	color:white;
+}
+
 .container {
 	min-width:100%;
 	margin:0;
