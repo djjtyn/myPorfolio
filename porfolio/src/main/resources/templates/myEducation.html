@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: headElement">
+<title>MySkills</title>
+</head>
+<body>
+	<!--Navigation Bar-->
+	<div th:insert="fragments :: navBar"></div>
+	<div class="pageBanner">
+		<h1>My Education</h1>
+	</div>
+	<div class = "container">
+		<div class = "educationBox">
+			<div class = "row">
+				<div class = "col-sm-2">
+					<h4>09/20 - 08/21</h4>
+					<img src="image/NCILogo.jpg" alt="NCILogoImage" class = "educationLogo">
+				</div>
+				<div class = "col-sm-8">
+					<h4>Course Name: Science in Computing (Software Development)</h4>
+					<h4>Results: First Class Honors 1.1</h4>
+					<h4>Qualification: NFQ Level 8 Higher Diploma in Computer Science (Software Development)</h4>
+					<h4>Modules: Algorithms and Advanced Programming, Computer Architecture Operating Systems and Networks, Data Structures, 
+						Distributed Systems, Introduction to Databases, Object Oriented Software Engineering, Software Development(Java), 
+						Web Design and Client Side Scripting.</h4>
+				</div>
+				<div class = "col-sm-2"></div>
+			</div>
+		</div>
+		<div class = "educationBox">
+			<div class = "row">
+				<div class = "col-sm-2">
+					<h4>07/20 - 09/20</h4>
+					<img src="image/MicrosoftLogo.jpg" alt="MicrosoftLogoImage" class = "educationLogo">
+				</div>
+				<div class = "col-sm-8">
+					<h4>Course Name: Introduction to Programming Using JavaScript</h4>
+					<h4>Qualification: Microsoft Technology Associate: Introduction to Programming using JavaScript</h4>
+				</div>
+				<div class = "col-sm-2">
+					<img src="image/MTALogo.jpg" alt="MicrosoftTechnologyAssociateImage" class = "educationCert" id = "MTACert">
+				</div>
+			</div>
+		</div>
+		<div class = "educationBox">
+			<div class = "row">
+				<div class = "col-sm-2">
+					<h4>08/19 - 05/20</h4>
+					<img src="image/CodeInstitutelogo.jpg" alt="CodeInstituteLogoImage" class = "educationLogo">
+				</div>
+				<div class = "col-sm-8">
+					<h4>Course Name: Introduction to Programming Using JavaScript</h4>
+					<h4>Qualification: Microsoft Technology Associate: Introduction to Programming using JavaScript</h4>
+				</div>
+				<div class = "col-sm-2">
+					<img src="image/codeInstituteCert.jpg" alt="CodeInstituteCertificate" class = "educationCert" id = "CodeInstituteCert">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:insert="fragments :: footer"></div>
+	<!--JavaScript Scripts-->
+	<div th:insert="fragments :: jsScripts"></div>
+</body>
+</html>

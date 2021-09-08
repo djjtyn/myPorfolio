@@ -42,9 +42,15 @@ public class controller {
 		return "aboutMe.html";
 	}
 	
+	//My Education
+	@GetMapping("/myEducation")
+	public String displayMyEducationPage() {
+		return "myEducation.html";
+	}
+	
 	//My Skills
 	@RequestMapping("/mySkills")
-	public String displayMySKillsPage(Model model, @RequestParam("filterSkills") Optional<Short> developmentTypeId) {
+	public String displayMySkillsPage(Model model, @RequestParam("filterSkills") Optional<Short> developmentTypeId) {
 		List<Skill> skillList;
 		String filterOption = "All";
 		//Get the list of development types to be used for filtering
