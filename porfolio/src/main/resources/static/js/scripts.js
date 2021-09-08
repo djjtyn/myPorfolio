@@ -13,11 +13,14 @@ $( document ).ready(function() {
 	$("#filterSkills").on("change", function(){
 		$(".skillFilter").submit();
 	})
+	
+	setInterval(createBubbles, 3000);
 });
 
 
 //Code below will allow bubble effect to be displayed
-/*function createBubbles(){
+function createBubbles(){
+	//Get the cut off point for the bubbles 
 	const container = document.querySelector(".container");
 	const bubble = document.createElement("span");
 	bubble.classList.add("bubble");
@@ -25,8 +28,8 @@ $( document ).ready(function() {
 	bubble.style.width = bubbleSize + "px";
 	bubble.style.height = bubbleSize + "px";
 	bubble.style.left = Math.random() * innerWidth + "px";
+	bubble.style.position = "fixed";
+	bubble.style.bottom = "0";
 	container.appendChild(bubble);
-	setTimeout( () => {
-		bubble.remove();
-	}, 4000);
-}*/
+
+}

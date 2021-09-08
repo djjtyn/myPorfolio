@@ -56,14 +56,14 @@ public class controller {
 			Short id = developmentTypeId.get();
 			//If the id is -1 display all skills
 			if(id == -1) {
-				skillList = skillRepo.findAll();
+				skillList = skillRepo.findAllByOrderByNameAsc();
 			} else {
 				DevelopmentType type = developmentTypeRepo.getById(id);
 				filterOption = type.getType();
-				skillList = skillRepo.findByDevelopmentType(type);
+				skillList = skillRepo.findByDevelopmentTypeOrderByNameAsc(type);
 			}
 		} else { 
-			skillList = skillRepo.findAll();
+			skillList = skillRepo.findAllByOrderByNameAsc();
 		}
 		model.addAttribute("filterOption", filterOption);
 		model.addAttribute("skillList", skillList);

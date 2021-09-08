@@ -9,5 +9,7 @@ import com.porfolio.models.Skill;
 
 public interface SkillRepo extends JpaRepository<Skill, Short>{
 	
-	List<Skill> findByDevelopmentType(DevelopmentType type);
+	List<Skill> findByDevelopmentTypeOrderByNameAsc(DevelopmentType type);
+	
+	List<Skill> findAllByOrderByNameAsc();
 }

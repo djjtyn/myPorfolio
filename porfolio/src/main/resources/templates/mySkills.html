@@ -3,7 +3,7 @@
 <head th:include="fragments :: headElement">
 <title>MySkills</title>
 </head>
-<body>
+<body onload = "createBubbles()">
 	<!--Navigation Bar-->
 	<div th:insert="fragments :: navBar"></div>
 	<div class="pageBanner">
@@ -15,7 +15,7 @@
 	<div class="typedData">
 		<span>AWS</span><span>Java</span><span>JavaScript</span><span>Python</span><span>HTML</span><span>CSS</span><span>jQuery</span><span>MySQL</span>
 		<span>NoSQL</span><span>Django</span><span>Spring Boot</span><span>Bootstrap</span><span>Git</span><span>GitHub</span><span>Flask</span>
-		<span>Thymeleaf</span><span>Jinja</span><span>API's</span><span>Flask</span><span>gRPC</span><span>MQTT</span><span>Heroku</span>
+		<span>Thymeleaf</span><span>API's</span><span>Flask</span><span>gRPC</span><span>MQTT</span><span>Heroku</span><span>MongoDB</span>
 	</div>
 	<div class="container">
 		<div class = "row">
@@ -55,6 +55,16 @@
 								<img th:if= "${skill.name == 'Heroku'}" src="image/heroku.jpg" alt="herokuLogoImage">
 								<img th:if= "${skill.name == 'HTML'}" src="image/html.jpg" alt="htmlLogoImage">
 								<img th:if= "${skill.name == 'Java'}" src="image/java.jpg" alt="javaLogoImage">
+								<img th:if= "${skill.name == 'gRPC'}" src="image/gRPC.jpg" alt="gRPCLogoImage">
+								<img th:if= "${skill.name == 'JavaScript'}" src="image/JS.jpg" alt="JavaScriptLogoImage">
+								<img th:if= "${skill.name == 'jQuery'}" src="image/jQuery.jpg" alt="jQueryLogoImage">
+								<img th:if= "${skill.name == 'MQTT'}" src="image/MQTT.jpg" alt="MQTTLogoImage">
+								<img th:if= "${skill.name == 'MySQL'}" src="image/MySql.jpg" alt="MySQLLogoImage">
+								<img th:if= "${skill.name == 'SQL'}" src="image/sql.jpg" alt="SQLLogoImage">
+								<img th:if= "${skill.name == 'MongoDB'}" src="image/mongoDB.jpg" alt="MongoDBLogoImage">
+								<img th:if= "${skill.name == 'Python'}" src="image/python.jpg" alt="PythonLogoImage">
+								<img th:if= "${skill.name == 'Spring Boot'}" src="image/springBoot.jpg" alt="SpringBootLogoImage">
+								<img th:if= "${skill.name == 'Thymeleaf'}" src="image/thymeleaf.jpg" alt="ThymeleafLogoImage">
 								<div class="buttonContainer d-md-none">
 									<button class="cardButton">Flip</button>
 								</div>
