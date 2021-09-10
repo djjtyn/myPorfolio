@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:include="fragments :: headElement">
-<title>MySkills</title>
+<title>MyEducation</title>
 </head>
 <body>
 	<!--Navigation Bar-->
@@ -10,50 +10,197 @@
 		<h1>My Education</h1>
 	</div>
 	<div class = "container">
-		<div class = "educationBox">
-			<div class = "row">
-				<div class = "col-sm-2">
-					<h4>09/20 - 08/21</h4>
-					<img src="image/NCILogo.jpg" alt="NCILogoImage" class = "educationLogo">
-				</div>
-				<div class = "col-sm-8">
-					<h4>Course Name: Science in Computing (Software Development)</h4>
-					<h4>Results: First Class Honors 1.1</h4>
-					<h4>Qualification: NFQ Level 8 Higher Diploma in Computer Science (Software Development)</h4>
-					<h4>Modules: Algorithms and Advanced Programming, Computer Architecture Operating Systems and Networks, Data Structures, 
-						Distributed Systems, Introduction to Databases, Object Oriented Software Engineering, Software Development(Java), 
-						Web Design and Client Side Scripting.</h4>
-				</div>
-				<div class = "col-sm-2"></div>
-			</div>
-		</div>
-		<div class = "educationBox">
-			<div class = "row">
-				<div class = "col-sm-2">
-					<h4>07/20 - 09/20</h4>
-					<img src="image/MicrosoftLogo.jpg" alt="MicrosoftLogoImage" class = "educationLogo">
-				</div>
-				<div class = "col-sm-8">
-					<h4>Course Name: Introduction to Programming Using JavaScript</h4>
-					<h4>Qualification: Microsoft Technology Associate: Introduction to Programming using JavaScript</h4>
-				</div>
-				<div class = "col-sm-2">
-					<img src="image/MTALogo.jpg" alt="MicrosoftTechnologyAssociateImage" class = "educationCert" id = "MTACert">
+		<div class = "educationBoxWrap">
+			<p class = "borderText">Formal Education</p>
+			<div class = "educationBox">
+				<div class = "row">
+					<div class = "col-sm-2">
+						<h4>09/20 - 08/21</h4>
+						<img src="image/NCILogo.jpg" alt="NCILogoImage" class = "educationLogo">
+					</div>
+					<div class = "col-sm-8">
+						<h4>Provider: National College of Ireland</h4>
+						<h4>Course Name: Science in Computing (Software Development)</h4>
+						<h4>Results: First Class Honors 1.1</h4>
+						<h4>Qualification: NFQ Level 8 Higher Diploma in Computer Science (Software Development)</h4>
+						<h4>Modules: Algorithms and Advanced Programming, Computer Architecture Operating Systems and Networks, Data Structures, 
+							Distributed Systems, Introduction to Databases, Object Oriented Software Engineering, Software Development(Java), 
+							Web Design and Client Side Scripting.</h4>
+					</div>
+					<div class = "col-sm-2"></div>
 				</div>
 			</div>
+			<div class = "educationBox">
+				<div class = "row">
+					<div class = "col-sm-2">
+						<h4>08/19 - 05/20</h4>
+						<img src="image/CodeInstitutelogo.jpg" alt="CodeInstituteLogoImage" class = "educationLogo">
+					</div>
+					<div class = "col-sm-8">
+						<h4>Provider: Code Institute</h4>
+						<h4>Course Name: Full Stack Software Development</h4>
+						<h4>Qualification: NFQ Level 6 Diploma in Software Development</h4>
+					</div>
+					<div class = "col-sm-2">
+						<img src="image/codeInstituteCert.jpg" alt="CodeInstituteCertificate" class = "educationCert" id = "CodeInstituteCert">
+					</div>
+				</div>
+			</div>
+			<div class = "educationBox">
+				<div class = "row">
+					<div class = "col-sm-2">
+						<h4>09/08 - 06/11</h4>
+						<img src="image/ColaisteDhulaighlogo.jpg" alt="ColaisteDhulaighLogoImage" class = "educationLogo">
+					</div>
+					<div class = "col-sm-8">
+						<h4>Provider: Colaiste Dhulaigh</h4>
+						<h4>Course Name: Communications & Media Production</h4>
+						<h4>Qualification: Higher National Diploma in Media</h4>
+					</div>
+					<div class = "col-sm-2">
+						<img src="image/ColaisteDhulaighCert.jpg" alt="ColisteDhulaighCertificate" class = "educationCert" id = "ColaisteDhulaighCert">
+					</div>
+				</div>
+			</div>
+			<div class = "educationBox">
+				<div class = "row">
+					<div class = "col-sm-2">
+						<h4>09/02 - 07/08</h4>
+						<img src="image/MalahideSchoolLogo.jpg" alt="MalahideSchoolLogoImage" class = "educationLogo">
+					</div>
+					<div class = "col-sm-8">
+						<h4>Provider: Malahide Community School</h4>
+						<h4>Course Name: Communications & Media Production</h4>
+						<h4>Qualifications</h4>
+						<p>Leaving Certificate</p>
+						<p>Junior Certificate</p>
+					</div>
+					<div class = "col-sm-2">
+						<img src="image/MalahideSchoolLogo.jpg" alt="ColisteDhulaighCertificate" class = "educationCert" id = "ColaisteDhulaighCert">
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class = "educationBox">
-			<div class = "row">
-				<div class = "col-sm-2">
-					<h4>08/19 - 05/20</h4>
-					<img src="image/CodeInstitutelogo.jpg" alt="CodeInstituteLogoImage" class = "educationLogo">
+		<div class = "educationBoxWrap">
+			<p class = "borderText">Non Formal Education</p>
+			<div class = "educationBox">
+				<div class = "row">
+					<div class = "col-sm-2">
+						<h4>Issued: 09/20</h4>
+						<img src="image/MicrosoftLogo.jpg" alt="MicrosoftLogoImage" class = "educationLogo">
+					</div>
+					<div class = "col-sm-8">
+						<h4>Provider: Microsoft</h4>
+						<h4>Certificate: Microsoft Technology Associate: Introduction to Programming using JavaScript</h4>
+					</div>
+					<div class = "col-sm-2">
+						<img src="image/MTALogo.jpg" alt="MicrosoftTechnologyAssociateImage" class = "educationCert" id = "MTACert">
+					</div>
 				</div>
-				<div class = "col-sm-8">
-					<h4>Course Name: Introduction to Programming Using JavaScript</h4>
-					<h4>Qualification: Microsoft Technology Associate: Introduction to Programming using JavaScript</h4>
+			</div>
+			<div class = "educationBox">
+				<div class = "row">
+					<div class = "col-sm-2">
+						<h4>Issued: 07/17</h4>
+						<img src="image/CrestronLogo.jpg" alt="CrestronLogoImage" class = "educationLogo">
+					</div>
+					<div class = "col-sm-8">
+						<h4>Provider: Crestron Technical Institue</h4>
+						<h4>Certificate: CTI-P101 Foundations of Crestron Programming</h4>
+					</div>
+					<div class = "col-sm-2">
+						<img src="image/CrestronP101Cert.jpg" alt="CrestronP101Certificate" class = "educationCert" id = "CrestronP101Cert">
+					</div>
 				</div>
-				<div class = "col-sm-2">
-					<img src="image/codeInstituteCert.jpg" alt="CodeInstituteCertificate" class = "educationCert" id = "CodeInstituteCert">
+			</div>
+			<div class = "educationBox">
+				<div class = "row">
+					<div class = "col-sm-2">
+						<h4>Issued: 07/17</h4>
+						<img src="image/ExtronLogo.jpg" alt="ExtronLogoImage" class = "educationLogo">
+					</div>
+					<div class = "col-sm-8">
+						<h4>Provider: Extron</h4>
+						<h4>Certificate: Extron Certified AV Associate</h4>
+					</div>
+					<div class = "col-sm-2">
+						<img src="image/ExtronAVAssociateCert.jpg" alt="ExtronAVAssociateCertificate" class = "educationCert" id = "ExtronAVAssociateCert">
+					</div>
+				</div>
+			</div>
+			<div class = "educationBox">
+				<div class = "row">
+					<div class = "col-sm-2">
+						<h4>Issued: 06/17</h4>
+						<img src="image/HarmanUniversityLogo.jpg" alt="HarmanUniversityLogoImage" class = "educationLogo">
+					</div>
+					<div class = "col-sm-8">
+						<h4>Provider: Harman Professional University</h4>
+						<h4>Certificate: Harman Certified Control Associate - Commissioning</h4>
+					</div>
+					<div class = "col-sm-2">
+						<img src="image/ControlCommissioningCert.jpg" alt="HarmanControlAssociateCommissioningCertificate" class = "educationCert" id = "ControlCommissioningCert">
+					</div>
+				</div>
+			</div>
+			<div class = "educationBox">
+				<div class = "row">
+					<div class = "col-sm-2">
+						<h4>Issued: 06/17</h4>
+						<img src="image/HarmanUniversityLogo.jpg" alt="HarmanUniversityLogoImage" class = "educationLogo">
+					</div>
+					<div class = "col-sm-8">
+						<h4>Provider: Harman Professional University</h4>
+						<h4>Certificate: ND101: Networked AV Design Essentials</h4>
+					</div>
+					<div class = "col-sm-2">
+						<img src="image/NetworkedAVDesignCert.jpg" alt="NetworkedAVDesignCertificate" class = "educationCert" id = "NetworkedAVDesignCert">
+					</div>
+				</div>
+			</div>
+			<div class = "educationBox">
+				<div class = "row">
+					<div class = "col-sm-2">
+						<h4>Issued: 05/17</h4>
+						<img src="image/HarmanUniversityLogo.jpg" alt="HarmanUniversityLogoImage" class = "educationLogo">
+					</div>
+					<div class = "col-sm-8">
+						<h4>Provider: Harman Professional University</h4>
+						<h4>Certificate: CC104: Core Curriculum - Networking Essentials</h4>
+					</div>
+					<div class = "col-sm-2">
+						<img src="image/NetworkingEssentialsCert.jpg" alt="NetworkingEssentialsCertificate" class = "educationCert" id = "NetworkingEssentialsCert">
+					</div>
+				</div>
+			</div>
+			<div class = "educationBox">
+				<div class = "row">
+					<div class = "col-sm-2">
+						<h4>Issued: 05/17</h4>
+						<img src="image/HarmanUniversityLogo.jpg" alt="HarmanUniversityLogoImage" class = "educationLogo">
+					</div>
+					<div class = "col-sm-8">
+						<h4>Provider: Harman Professional University</h4>
+						<h4>Certificate: CC105: Core Curriculum - PC Essentials</h4>
+					</div>
+					<div class = "col-sm-2">
+						<img src="image/PCEssentialsCert.jpg" alt="PCEssentialsCertificate" class = "educationCert" id = "PCEssentialsCert">
+					</div>
+				</div>
+			</div>
+			<div class = "educationBox">
+				<div class = "row">
+					<div class = "col-sm-2">
+						<h4>Issued: 05/17</h4>
+						<img src="image/HarmanUniversityLogo.jpg" alt="HarmanUniversityLogoImage" class = "educationLogo">
+					</div>
+					<div class = "col-sm-8">
+						<h4>Provider: Harman Professional University</h4>
+						<h4>Certificate: Harman Certified Control Associate - Design</h4>
+					</div>
+					<div class = "col-sm-2">
+						<img src="image/ControlDesignCert.jpg" alt="HarmanControlAssociateDesignCertificate" class = "educationCert" id = "ControlCommissioningCert">
+					</div>
 				</div>
 			</div>
 		</div>

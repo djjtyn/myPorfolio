@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.porfolio.emailService.EmailSender;
+import com.porfolio.helpers.RowMonitor;
 import com.porfolio.models.DevelopmentType;
+import com.porfolio.models.Project;
 import com.porfolio.models.Skill;
 import com.porfolio.repositories.DevelopmentTypeRepo;
+import com.porfolio.repositories.ProjectRepo;
 import com.porfolio.repositories.SkillRepo;
 
 @Controller
@@ -35,6 +38,9 @@ public class controller {
 	SkillRepo skillRepo;
 	
 	@Autowired
+	ProjectRepo projectRepo;
+	
+	@Autowired
 	DevelopmentTypeRepo developmentTypeRepo;
 	
 	@GetMapping("/")
@@ -46,6 +52,15 @@ public class controller {
 	@GetMapping("/myEducation")
 	public String displayMyEducationPage() {
 		return "myEducation.html";
+	}
+	
+	
+	//My Projects
+	@GetMapping("/myProjects")
+	public String displayProjectsPage(Model model) {
+		List<Project> projectList = projectRepo.findAll();
+		model.addAttribute("projectList", projectList);
+		return "myProjects.html";
 	}
 	
 	//My Skills
@@ -71,6 +86,9 @@ public class controller {
 		} else { 
 			skillList = skillRepo.findAllByOrderByNameAsc();
 		}
+		//Instantiate the RowMonitor class to ensure bootstrap rows are inserted correctly
+		RowMonitor rowMonitor = new RowMonitor();
+		model.addAttribute("rowMonitor", rowMonitor);
 		model.addAttribute("filterOption", filterOption);
 		model.addAttribute("skillList", skillList);
 		return "mySkills.html";

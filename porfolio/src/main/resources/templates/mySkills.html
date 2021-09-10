@@ -3,7 +3,7 @@
 <head th:include="fragments :: headElement">
 <title>MySkills</title>
 </head>
-<body onLoad = "displayTypeWriterAndBubbleEffect()">
+<body onLoad="displayTypeWriterAndBubbleEffect()">
 	<!--Navigation Bar-->
 	<div th:insert="fragments :: navBar"></div>
 	<div class="pageBanner">
@@ -18,71 +18,94 @@
 		<span>Thymeleaf</span><span>API's</span><span>Flask</span><span>gRPC</span><span>MQTT</span><span>Heroku</span><span>MongoDB</span>
 	</div>
 	<div class="container">
-		<div class = "row">
+		<div class="row">
 			<!--Filter options to filter between front end, back end and full stack skills-->
-			<form class = "skillFilter"  method = "post">
-				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
-				<div class = "form-group">
-					<select class="selectpicker" data-live-search="true" id="filterSkills" name = "filterSkills">
+			<form class="skillFilter" method="post">
+				<input type="hidden" th:name="${_csrf.parameterName}"
+					th:value="${_csrf.token}" />
+				<div class="form-group">
+					<select class="selectpicker" data-live-search="true"
+						id="filterSkills" name="filterSkills">
 						<option selected disabled>Filter Skills</option>
-						<option value = "-1">All</option>
-						<th:block th:each = "type: ${developmentTypeList}">
-							<option th:text = "${type.type}" th:value = "${type.developmentTypeId}"/>
+						<option value="-1">All</option>
+						<th:block th:each="type: ${developmentTypeList}">
+							<option th:text="${type.type}"
+								th:value="${type.developmentTypeId}" />
 						</th:block>
 					</select>
 				</div>
 			</form>
 		</div>
-		<h2 th:text = "${filterOption} + ' Technologies'"></h2>
+		<h2 th:text="${filterOption} + ' Technologies'"></h2>
 		<div class="row">
 			<!--Create a card for each skill in the database-->
-			<th:block th:each = "skill: ${skillList}">
+			<th:block th:each="skill: ${skillList}">
 				<div class="col-sm-3">
 					<div class="card card-flip">
 						<div class="card-front">
 							<div class="card-body">
-								<h3 th:text = "${skill.name}"></h3>
+								<h3 th:text="${skill.name}"></h3>
 								<!--Each card image will be different based on the skill name-->
-								<img th:if= "${skill.name == 'Amazon RDS'}" src="image/rds.jpg" alt="amazonRDSLogo">
-								<img th:if= "${skill.name == 'Amazon S3'}" src="image/s3.jpg" alt="amazonS3Logo">
-								<img th:if= "${skill.name == 'API'}" src="image/Api.jpg" alt="apiImage">
-								<img th:if= "${skill.name == 'Bootstrap'}" src="image/bootstrap.jpeg" alt="bootstrapLogo">
-								<img th:if= "${skill.name == 'CSS'}" src="image/CSS.jpg" alt="cssLogoImage">
-								<img th:if= "${skill.name == 'Django'}" src="image/django.jpeg" alt="djangoLogoImage">
-								<img th:if= "${skill.name == 'Flask'}" src="image/flask.jpg" alt="flaskLogomage">
-								<img th:if= "${skill.name == 'Git'}" src="image/git.jpg" alt="gitLogoImage">
-								<img th:if= "${skill.name == 'GitHub'}" src="image/gitHub.jpg" alt="gitHubLogoImage">
-								<img th:if= "${skill.name == 'Heroku'}" src="image/heroku.jpg" alt="herokuLogoImage">
-								<img th:if= "${skill.name == 'HTML'}" src="image/html.jpg" alt="htmlLogoImage">
-								<img th:if= "${skill.name == 'Java'}" src="image/java.jpg" alt="javaLogoImage">
-								<img th:if= "${skill.name == 'gRPC'}" src="image/gRPC.jpg" alt="gRPCLogoImage">
-								<img th:if= "${skill.name == 'JavaScript'}" src="image/JS.jpg" alt="JavaScriptLogoImage">
-								<img th:if= "${skill.name == 'jQuery'}" src="image/jQuery.jpg" alt="jQueryLogoImage">
-								<img th:if= "${skill.name == 'MQTT'}" src="image/MQTT.jpg" alt="MQTTLogoImage">
-								<img th:if= "${skill.name == 'MySQL'}" src="image/MySql.jpg" alt="MySQLLogoImage">
-								<img th:if= "${skill.name == 'SQL'}" src="image/sql.jpg" alt="SQLLogoImage">
-								<img th:if= "${skill.name == 'MongoDB'}" src="image/mongoDB.jpg" alt="MongoDBLogoImage">
-								<img th:if= "${skill.name == 'Python'}" src="image/python.jpg" alt="PythonLogoImage">
-								<img th:if= "${skill.name == 'Spring Boot'}" src="image/springBoot.jpg" alt="SpringBootLogoImage">
-								<img th:if= "${skill.name == 'Thymeleaf'}" src="image/thymeleaf.jpg" alt="ThymeleafLogoImage">
+								<img th:if="${skill.name == 'Amazon RDS'}" src="image/rds.jpg"
+									alt="amazonRDSLogo"> <img
+									th:if="${skill.name == 'Amazon S3'}" src="image/s3.jpg"
+									alt="amazonS3Logo"> <img th:if="${skill.name == 'API'}"
+									src="image/Api.jpg" alt="apiImage"> <img
+									th:if="${skill.name == 'Bootstrap'}" src="image/bootstrap.jpeg"
+									alt="bootstrapLogo"> <img th:if="${skill.name == 'CSS'}"
+									src="image/CSS.jpg" alt="cssLogoImage"> <img
+									th:if="${skill.name == 'Django'}" src="image/django.jpeg"
+									alt="djangoLogoImage"> <img
+									th:if="${skill.name == 'Flask'}" src="image/flask.jpg"
+									alt="flaskLogomage"> <img th:if="${skill.name == 'Git'}"
+									src="image/git.jpg" alt="gitLogoImage"> <img
+									th:if="${skill.name == 'GitHub'}" src="image/gitHub.jpg"
+									alt="gitHubLogoImage"> <img
+									th:if="${skill.name == 'Heroku'}" src="image/heroku.jpg"
+									alt="herokuLogoImage"> <img
+									th:if="${skill.name == 'HTML'}" src="image/html.jpg"
+									alt="htmlLogoImage"> <img th:if="${skill.name == 'Java'}"
+									src="image/java.jpg" alt="javaLogoImage"> <img
+									th:if="${skill.name == 'gRPC'}" src="image/gRPC.jpg"
+									alt="gRPCLogoImage"> <img
+									th:if="${skill.name == 'JavaScript'}" src="image/JS.jpg"
+									alt="JavaScriptLogoImage"> <img
+									th:if="${skill.name == 'jQuery'}" src="image/jQuery.jpg"
+									alt="jQueryLogoImage"> <img
+									th:if="${skill.name == 'MQTT'}" src="image/MQTT.jpg"
+									alt="MQTTLogoImage"> <img
+									th:if="${skill.name == 'MySQL'}" src="image/MySql.jpg"
+									alt="MySQLLogoImage"> <img th:if="${skill.name == 'SQL'}"
+									src="image/sql.jpg" alt="SQLLogoImage"> <img
+									th:if="${skill.name == 'MongoDB'}" src="image/mongoDB.jpg"
+									alt="MongoDBLogoImage"> <img
+									th:if="${skill.name == 'Python'}" src="image/python.jpg"
+									alt="PythonLogoImage"> <img
+									th:if="${skill.name == 'Spring Boot'}"
+									src="image/springBoot.jpg" alt="SpringBootLogoImage"> <img
+									th:if="${skill.name == 'Thymeleaf'}" src="image/thymeleaf.jpg"
+									alt="ThymeleafLogoImage">
 								<div class="buttonContainer d-md-none">
-									<button class="cardButton">Flip</button>
+									<button class="flipButton">Flip</button>
 								</div>
 							</div>
 						</div>
 						<div class="card-back">
 							<div class="card-body">
-								<h3 th:text = "${skill.name}"></h3>
+								<h3 th:text="${skill.name}"></h3>
 								<p class="fw-bold">What is it?</p>
-								<p th:text = "${skill.description}"></p>
+								<p th:text="${skill.description}"></p>
 								<div class="buttonContainer d-md-none">
-									<button class="cardButton">Flip</button>
+									<button class="flipButton">Flip</button>
 								</div>
 							</div>
 						</div>
 					</div>
-					<br>
 				</div>
+				<div class="d-md-none rowSpacer"></div>
+				<th:block th:if="${rowMonitor.incrementColumnCount %4 == 0}">
+					<div class="rowSpacer d-md-block"></div>
+				</th:block>
 			</th:block>
 		</div>
 	</div>

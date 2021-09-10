@@ -2,16 +2,19 @@ package com.porfolio.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Skill {
+public class Project {
 	
 	//Primary Key with auto increment
 	@Id
@@ -19,6 +22,7 @@ public class Skill {
 	private Short id;
 	
 	private String name;
+	
 	private String description;
 	
 	//Relation with DevelopmentType entity
@@ -26,9 +30,17 @@ public class Skill {
 	@JoinColumn(name = "developmentTypeId")
 	private DevelopmentType developmentType;
 	
+	//Relation with GitHubRepo entity
+	@OneToOne(mappedBy = "project", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	private GitHubRepo gitHubRepo;
+	
+	//Relation with LiveProject entity
+	@OneToOne(mappedBy = "project", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	private DeployedProject deployedProject;
+	
 	//Relation with ProjectSkill entity
-	@OneToMany(mappedBy = "skill")
-	private List<ProjectSkill> projects;
+	@OneToMany(mappedBy = "project")
+	private List<ProjectSkill> skills;
 	
 	//Getters and Setters
 	public Short getId() {
@@ -63,11 +75,27 @@ public class Skill {
 		this.developmentType = developmentType;
 	}
 
-	public List<ProjectSkill> getProjects() {
-		return projects;
+	public GitHubRepo getGitHubRepo() {
+		return gitHubRepo;
 	}
 
-	public void setProjects(List<ProjectSkill> projects) {
-		this.projects = projects;
+	public void setGitHubRepo(GitHubRepo gitHubRepo) {
+		this.gitHubRepo = gitHubRepo;
 	}
+
+	public DeployedProject getDeployedProject() {
+		return deployedProject;
+	}
+
+	public void setDeployedProject(DeployedProject deployedProject) {
+		this.deployedProject = deployedProject;
+	}
+
+	public List<ProjectSkill> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(List<ProjectSkill> skills) {
+		this.skills = skills;
+	}	
 }

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: headElement">
+<title>MyProjects</title>
+</head>
+<body>
+	<!--Navigation Bar-->
+	<div th:insert="fragments :: navBar"></div>
+	<div class="pageBanner">
+		<h1>My Projects</h1>
+	</div>
+	<div class="container projects">
+		<div class = "row">
+			<th:block th:each = "project: ${projectList}">
+				<div class="col-sm-4">
+					<div class="card card-flip">
+						<div class="card-front">
+							<div class="card-body">
+								<h3 th:text = "${project.name}"></h3>
+								<h4>Technologies Used</h4>
+								<ul class = "projectSkills">
+									<th:block th:each="tool: ${project.skills}">
+										<li th:text = "${tool.skill.name}"></li>
+									</th:block>
+								</ul>
+								<div class="buttonContainer">
+									<button class="flipButton d-md-none">Description</button>
+								</div>
+							</div>
+						</div>
+						<div class="card-back">
+							<div class="card-body">
+								<h3 th:text = "${project.name}"></h3>
+								<h4>Project Description</h4>
+								<p th:text = "${project.description}"></p>
+								<div class="buttonContainer d-md-none">
+									<button class="flipButton">Flip</button>
+								</div>
+							</div>
+						</div>
+														<div class = "row buttonContainer">
+									<button class="projectButton projectCodeButton">Code</button>
+									<button class="projectButton projectDeploymentButton">Deployment</button>
+								</div>
+					</div>
+					<br>
+				</div>
+			</th:block>
+		</div>
+	</div>
+	<div th:insert = "fragments :: footer"></div>
+	<!--JavaScript Scripts-->
+	<div th:insert = "fragments :: jsScripts"></div>
+<body>
+</html>

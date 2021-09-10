@@ -5,6 +5,14 @@ body {
 	box-sizing:border-box;
 }
 
+fieldset {
+	border: 1px solid black;
+}
+
+.rowSpacer {
+	height:1em;
+}
+
 .pageBanner {
 	width:100%;
 	padding:1em;
@@ -132,13 +140,16 @@ body {
 
 /*Flip cards*/
 .card-flip > div {
-  backface-visibility: hidden;
-  transition: transform 300ms;
-  transition-timing-function: linear;
-  width: 100%;
-  height: 24em;
-  margin: 0;
-  display: flex;
+	backface-visibility: hidden;
+  	transition: transform 300ms;
+  	transition-timing-function: linear;
+  	width: 100%;
+  	margin: 0;
+  	display: flex;
+}
+
+.card {
+	height:100%;
 }
 
 .card-body {
@@ -146,7 +157,10 @@ body {
 }
 
 .card-front {
-  transform: rotateY(0deg);
+	position:absolute;
+	top:0;
+	height:100%;
+  	transform: rotateY(0deg);
 }
 
 .card-front img {
@@ -155,9 +169,8 @@ body {
 }
 
 .card-back {
-  transform: rotateY(180deg);
-  position: absolute;
-  top: 0;
+  	transform: rotateY(180deg);
+  	position: relative;
 }
 
 .card-flip:hover .card-front {
@@ -175,20 +188,36 @@ body {
 
 .buttonContainer {
 	width:100%;
+	justify-content:center;
 }
-.cardButton {
-	color:green;
-	width:20%;
-	margin:10% 40%;
+.flipButton {
+	width:40%;
+	margin:1em 30%;
 	background-color:green;
 	color:white;
 }
 
 /*Styling for MyEducation Page*/
+.educationBoxWrap {
+	width:98%;
+	height:auto;
+	border:1px solid black;
+	border-radius:15px;
+	margin:2em 0;
+	padding: 0 .5em;
+}
+
+.borderText {
+	transform: translateY(-14px);
+	background-color:white;
+	display:inline-block;
+	margin: 0 1em;
+}
+
 .educationBox {
 	border:1px solid black;
 	border-radius:15px;
-	margin:1em 0;
+	margin:.2em 0;
 	padding:1em 0;
 	height:auto;
 }
@@ -205,4 +234,37 @@ body {
 
 .educationCert:hover {
 	cursor: zoom-in;
+}
+
+/*Styling for MyProjects Page*/
+.projects .card-front {
+	position:relative;
+	top:0;
+  	transform: rotateY(0deg);
+}
+
+.projects .card-back {
+  	transform: rotateY(180deg);
+  	position: absolute;
+  	top:0;
+  	height:100%;
+}
+.projectSkills {
+	columns: 2;
+}
+
+.projectButton {
+	width:auto;
+	display:inline;
+	margin:1em;
+	border-radius:1em;
+	color:white;
+}
+
+.projectCodeButton {
+	background-color:blue;
+}
+
+.projectDeploymentButton {
+	background-color:green;
 }
