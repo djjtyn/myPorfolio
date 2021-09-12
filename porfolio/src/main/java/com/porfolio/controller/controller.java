@@ -1,5 +1,6 @@
 package com.porfolio.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +22,7 @@ import com.porfolio.models.Project;
 import com.porfolio.models.Skill;
 import com.porfolio.repositories.DevelopmentTypeRepo;
 import com.porfolio.repositories.ProjectRepo;
+import com.porfolio.repositories.ProjectSkillRepo;
 import com.porfolio.repositories.SkillRepo;
 
 @Controller
@@ -42,6 +44,9 @@ public class controller {
 	
 	@Autowired
 	DevelopmentTypeRepo developmentTypeRepo;
+
+	@Autowired
+	ProjectSkillRepo projectSkillRepo;
 	
 	@GetMapping("/")
 	public String displayAboutMePage() {
@@ -56,11 +61,60 @@ public class controller {
 	
 	
 	//My Projects
-	@GetMapping("/myProjects")
-	public String displayProjectsPage(Model model) {
-		List<Project> projectList = projectRepo.findAll();
-		model.addAttribute("projectList", projectList);
-		return "myProjects.html";
+	@RequestMapping("/myProjects")
+	public String displayProjectsPage(Model model, @RequestParam("filterDevType") Optional<Short> developmentTypeId, 
+										@RequestParam("filterDevTool") Optional<Short> selectedSkillId) {
+		//Try to retrieve data from the database. If data is unable to be retrieved, display error page
+		try {
+			List<Project> projectList = new ArrayList<>();
+			String filterOption = "All";
+			//Get the list of development types to be used for filtering
+			List<DevelopmentType> developmentTypeList = developmentTypeRepo.findAll();
+			//Get the list of technologies used to be used for filtering
+			List<Skill> projectTechnologies = new ArrayList<>();
+			//For each distinct skill id in the project skill repo add the skill instance to projectTechnologies arraylist
+			for(Short skillId :projectSkillRepo.getAllProjectSkills()){
+				projectTechnologies.add(skillRepo.getById(skillId));
+			}
+			//Check if a dev type filter option is selected
+			if(developmentTypeId.isPresent()) {
+				//Determine what filter was selected
+				Short id = developmentTypeId.get();
+				//If the id is -1 display all projects
+				if(id == -1) {
+					projectList = projectRepo.findAll();
+				} else {
+					System.out.println("Dev type selected");
+					DevelopmentType type = developmentTypeRepo.getById(id);
+					filterOption = type.getType();
+					projectList = projectRepo.findByDevelopmentType(type);
+				}	
+			//Check if a technology tool filter option is selected 
+			} else if (selectedSkillId.isPresent()) {
+				//Determine what filter was selected
+				Short id = selectedSkillId.get();
+				//If the id is -1 display all projects
+				if(id == -1) {
+					projectList = projectRepo.findAll();
+				} else {
+					System.out.println("Tool selected = " + id);
+					//For each project that has the selected technology add it to the projectList list
+					for(Short projectId: projectSkillRepo.getProjectIdForTool(id)) {
+						projectList.add(projectRepo.getById(projectId));
+					}
+				}
+			//If no filter is selected show all projects
+			} else {
+				projectList = projectRepo.findAll();
+			}
+			model.addAttribute("projectTechnologies", projectTechnologies);
+			model.addAttribute("developmentTypeList", developmentTypeList);
+			model.addAttribute("projectList", projectList);
+			return "myProjects.html";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "error.html";
+		}
 	}
 	
 	//My Skills

@@ -103,10 +103,7 @@
 					</div>
 				</div>
 				<div class="d-md-none rowSpacer"></div>
-				<th:block th:if="${rowMonitor.incrementColumnCount %4 == 0}">
-					<div class="rowSpacer d-md-block"></div>
-				</th:block>
-			</th:block>
+				<div th:if="${rowMonitor.incrementColumnCount %4 == 0}" class = "rowSpacer d-none d-md-block"></div>
 		</div>
 	</div>
 	<div th:insert="fragments :: footer"></div>

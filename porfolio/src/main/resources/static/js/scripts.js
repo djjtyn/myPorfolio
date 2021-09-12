@@ -1,7 +1,7 @@
 $( document ).ready(function() {	
 	//Code below allows form to be submitted when a filter option is selected from the drop down on the myskills page 
-	$("#filterSkills").on("change", function(){
-		$(".skillFilter").submit();
+	$("select").on("change", function(){
+		$("form").submit();
 	})
 	
 	//Code below calls method that magnifies education certs when clicked on

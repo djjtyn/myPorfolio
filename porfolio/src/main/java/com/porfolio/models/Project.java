@@ -38,6 +38,10 @@ public class Project {
 	@OneToOne(mappedBy = "project", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 	private DeployedProject deployedProject;
 	
+	//Relation with DatabaseDsign entity
+	@OneToOne(mappedBy = "project", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	private DatabaseDesign databaseDesign;
+	
 	//Relation with ProjectSkill entity
 	@OneToMany(mappedBy = "project")
 	private List<ProjectSkill> skills;
@@ -97,5 +101,13 @@ public class Project {
 
 	public void setSkills(List<ProjectSkill> skills) {
 		this.skills = skills;
+	}
+
+	public DatabaseDesign getDatabaseDesign() {
+		return databaseDesign;
+	}
+
+	public void setDatabaseDesign(DatabaseDesign databaseDesign) {
+		this.databaseDesign = databaseDesign;
 	}	
 }

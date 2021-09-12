@@ -24,8 +24,6 @@ fieldset {
 }
 
 .pageBanner h1 {
-	position:relative;
-	top:10%;
 	padding:4em 0;
 }
 
@@ -253,18 +251,38 @@ fieldset {
 	columns: 2;
 }
 
-.projectButton {
-	width:auto;
+.buttonContainer a {
 	display:inline;
+	width:auto;
+	height:auto;
 	margin:1em;
 	border-radius:1em;
 	color:white;
+	position:relative;
+	text-decoration:none;
+	transition: .1s ease-in-out .1s
 }
 
+.projectDatabaseButton {
+	background-color:orange;
+	padding:0 1em;
+}
 .projectCodeButton {
 	background-color:blue;
 }
 
+.projectCodeButton:hover {
+	background-color:red;
+	color:blue;
+	cursor:pointer;
+}
+
 .projectDeploymentButton {
 	background-color:green;
+}
+
+.projectDeploymentButton:hover {
+	background-color:red;
+	color: green;
+	cursor:pointer;
 }
