@@ -84,7 +84,6 @@ public class controller {
 				if(id == -1) {
 					projectList = projectRepo.findAll();
 				} else {
-					System.out.println("Dev type selected");
 					DevelopmentType type = developmentTypeRepo.getById(id);
 					filterOption = type.getType();
 					projectList = projectRepo.findByDevelopmentType(type);
@@ -97,7 +96,6 @@ public class controller {
 				if(id == -1) {
 					projectList = projectRepo.findAll();
 				} else {
-					System.out.println("Tool selected = " + id);
 					//For each project that has the selected technology add it to the projectList list
 					for(Short projectId: projectSkillRepo.getProjectIdForTool(id)) {
 						projectList.add(projectRepo.getById(projectId));
@@ -107,6 +105,9 @@ public class controller {
 			} else {
 				projectList = projectRepo.findAll();
 			}
+			//Instantiate the RowMonitor class to ensure bootstrap rows are inserted correctly
+			RowMonitor rowMonitor = new RowMonitor();
+			model.addAttribute("rowMonitor", rowMonitor);
 			model.addAttribute("projectTechnologies", projectTechnologies);
 			model.addAttribute("developmentTypeList", developmentTypeList);
 			model.addAttribute("projectList", projectList);

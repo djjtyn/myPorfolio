@@ -43,6 +43,26 @@ function displayTypeWriterAndBubbleEffect(){
 
 }
 
+//Code below allows zoomed in areas to appear for an image
+function zoomIn(imageContainer, imageElement, event) {
+	let zoomYPosition = (event.pageY - imageElement.offsetTop - imageContainer.offsetTop -27 );
+	let zoomXPosition = (event.pageX - imageElement.offsetLeft - imageContainer.offsetLeft -27);
+	//If there is already a zoomContainer, remove it
+	if(document.getElementById("zoomContainer")){
+		document.getElementById("zoomContainer").remove();
+	}
+	let zoomContainer = document.createElement("div");
+	zoomContainer.id = "zoomContainer";
+	zoomContainer.style.minHeight = "3em";
+	zoomContainer.style.minWidth = "3em";
+	zoomContainer.style.background = "url(" + imageElement.src + ")";
+	zoomContainer.style.backgroundPosition = (-zoomXPosition) + "px " + (-zoomYPosition) + "px";
+	zoomContainer.style.border = "1px solid black";
+	zoomContainer.style.position = "absolute";
+	zoomContainer.style.top = zoomYPosition + "px";	
+	imageContainer.appendChild(zoomContainer);
+}
+
 function magnifyImage(elementId){
 	if(document.getElementById("magnifiedImage") == null) {
 		//Clone the certificate image and remove it's default classes
@@ -58,10 +78,13 @@ function magnifyImage(elementId){
 		imgContainer.style.position = "absolute";
 		imgContainer.style.top = window.scrollY + + 30 + "px";
 		image.style.width = "60%";
+		image.style.padding = "0";
 		image.style.display = "block";
 		image.style.minHeight = "90%";
 		image.style.margin = "1em auto";
-		image.style.padding = "1em;"
+		image.onmousemove = function(event) {
+			zoomIn(magnifiedImage,image, event);
+		}
 		//Create button to minimise magnifyed image
 		let minimiseButton = document.createElement("button");
 		minimiseButton.innerHTML = '<i class="fas fa-times-circle"></i>';
@@ -70,7 +93,46 @@ function magnifyImage(elementId){
 			this.parentElement.remove();
 		}
 		imgContainer.appendChild(minimiseButton);
-			imgContainer.append(image);
+		imgContainer.append(image);
 		document.body.appendChild(imgContainer);
 	}
+}
+
+function test(projectId){
+	let schemaContainer = document.createElement("div");
+	schemaContainer.id = "magnifiedImage";
+	schemaContainer.style.width = "100%";
+	schemaContainer.style.backgroundColor = "white";
+	schemaContainer.style.position = "absolute";
+	schemaContainer.style.top = window.scrollY + "px";
+	let schema = document.createElement("img");
+	schema.style.width = "100%";
+	schema.style.display = "block";
+	schema.style.minHeight = "100%";
+	schema.style.margin = "1em auto";
+	schema.style.padding = "1em";
+	let minimiseButton = document.createElement("button");
+	minimiseButton.innerHTML = '<i class="fas fa-times-circle"></i>';
+	minimiseButton.style.float = "right";
+	minimiseButton.onclick = function() {
+		this.parentElement.remove();
+	}
+	//Set the schema value depeneding on which button was clicked
+	switch(projectId) {
+		case 1: 
+			schema.src = "image/DatabaseDesigns/IOMusicDatabaseDesign.jpg"; 
+			break;
+		case 4:
+			schema.src = "image/DatabaseDesigns/MusiciansChoiceDatabase.jpg";
+	}
+	schemaContainer.appendChild(minimiseButton);
+	schemaContainer.append(schema);
+	document.body.appendChild(schemaContainer);
+}
+
+function initialiseMasonryGrid() {
+	let grid = document.querySelector(".grid");
+	let masonry = new Masonry(grid, {
+		itemSelector: ".grid-item",
+		});
 }

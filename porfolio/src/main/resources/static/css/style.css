@@ -235,6 +235,18 @@ fieldset {
 }
 
 /*Styling for MyProjects Page*/
+.grid-item {
+	width:100%;
+}
+
+@media only screen and (min-width:768px) {
+  .grid-item {
+    width:50%
+  }
+}
+
+
+
 .projects .card-front {
 	position:relative;
 	top:0;
@@ -251,7 +263,8 @@ fieldset {
 	columns: 2;
 }
 
-.buttonContainer a {
+.buttonContainer a,
+.buttonContainer button {
 	display:inline;
 	width:auto;
 	height:auto;

@@ -3,6 +3,7 @@ package com.porfolio.models;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,6 +24,7 @@ public class Project {
 	
 	private String name;
 	
+	@Column(length = 3500)
 	private String description;
 	
 	//Relation with DevelopmentType entity

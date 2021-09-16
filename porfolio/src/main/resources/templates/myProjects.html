@@ -3,7 +3,7 @@
 <head th:include="fragments :: headElement">
 <title>MyProjects</title>
 </head>
-<body>
+<body onLoad = "initialiseMasonryGrid()">
 	<!--Navigation Bar-->
 	<div th:insert="fragments :: navBar"></div>
 	<div class="pageBanner">
@@ -37,11 +37,11 @@
 			</form>
 		</div>
 		<div class = "projects">
-			<div class = "row">
+			<div class = "grid">
 				<th:block th:each = "project: ${projectList}">
-					<div class="col-sm-4">
-						<div class="card card-flip">
-							<div class="card-front">
+					<div class = "grid-item">
+						<div class="card card-flip" onmouseover = "initialiseMasonryGrid()">
+							<div class="card-back">
 								<div class="card-body">
 									<h3 th:text = "${project.name}"></h3>
 									<h4>Technologies Used</h4>
@@ -55,7 +55,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="card-back">
+							<div class="card-front">
 								<div class="card-body">
 									<h3 th:text = "${project.name}"></h3>
 									<h4>Project Description</h4>
@@ -69,18 +69,19 @@
 								 <a th:href = "@{${project.databaseDesign.url}}" target = "_blank" class = "projectDatabaseButton">Database Schema</a>
 							</div>
 							<div class = "row buttonContainer">
-								<a th:href="@{${project.gitHubRepo.url}}" target = "_blank" class = "projectCodeButton">Code</a>
+								<a th:if = "${project.gitHubRepo != null}" th:href="@{${project.gitHubRepo.url}}" target = "_blank" class = "projectCodeButton">Code</a>
 								<a th:if = "${project.deployedProject != null}" th:href = "@{${project.deployedProject.url}}" target = "_blank "class="projectDeploymentButton">Deployment</a>
 							</div>
 						</div>
 						<br>
 					</div>
+					</div>
 				</th:block>
 			</div>
 		</div>
-	</div>
 	<div th:insert = "fragments :: footer"></div>
 	<!--JavaScript Scripts-->
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 	<div th:insert = "fragments :: jsScripts"></div>
 <body>
 </html>
