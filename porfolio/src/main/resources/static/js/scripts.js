@@ -35,12 +35,20 @@ function createBubbles(){
 	container.appendChild(bubble);
 }
 
-
-
 function displayTypeWriterAndBubbleEffect(){
 	setInterval(createBubbles, 3000);	
 	displayTypeWriterEffect();
+}
 
+function flipSkillCard(element){
+	let cardFront = element.querySelector(".card-front");
+	let cardBack = element.querySelector(".card-back");
+	cardFront.style.transform = "rotateY(-180deg)";
+	cardBack.style.transform = "rotateY(0deg)";
+	element.addEventListener("mouseleave", function(){
+		cardFront.style.transform = "rotateY(0deg)";
+		cardBack.style.transform = "rotateY(-180deg)";
+	})
 }
 
 //Code below allows zoomed in areas to appear for an image
@@ -98,7 +106,7 @@ function magnifyImage(elementId){
 	}
 }
 
-function test(projectId){
+function displayDatabaseSchema(projectId){
 	let schemaContainer = document.createElement("div");
 	schemaContainer.id = "magnifiedImage";
 	schemaContainer.style.width = "100%";
@@ -135,4 +143,38 @@ function initialiseMasonryGrid() {
 	let masonry = new Masonry(grid, {
 		itemSelector: ".grid-item",
 		});
+	masonry.reloadItems();
+}
+
+function flipProjectCard(element) {
+	let cardContainer = element.parentElement;
+	switch(element.className) {
+		case "card-front":
+			element.style.transform = "rotateY(-180deg)";
+			cardContainer.querySelector(".card-back").style.transform = "rotateY(0deg)";
+			adjustBackCardSize(cardContainer);
+			break;
+		case "card-back":
+			element.style.transform = "rotateY(-180deg)";
+			cardContainer.querySelector(".card-front").style.transform = "rotateY(0deg)";
+			adjustFrontCardSize(cardContainer);
+			break;
+	}
+}
+
+//Function below will adjust the project card height based on wheither the front or back of the card is showing
+function adjustBackCardSize(element){
+	let cardBack = element.querySelector(".card-back");
+	let cardFront = element.querySelector(".card-front");
+	cardBack.style.position = "relative";
+	cardFront.style.position = "absolute";
+	initialiseMasonryGrid();
+}
+
+function adjustFrontCardSize(element){
+	let cardFront = element.querySelector(".card-front");
+	let cardBack = element.querySelector(".card-back");
+	cardFront.style.position = "relative";
+	cardBack.style.position = "absolute";
+	initialiseMasonryGrid();
 }

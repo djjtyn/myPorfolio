@@ -20,17 +20,16 @@
 						<option selected disabled>Filter Project Type</option>
 						<option value="-1">All</option>
 						<th:block th:each="type: ${developmentTypeList}">
-							<option th:text="${type.type}"
-								th:value="${type.developmentTypeId}" />
+							<option th:text="${type.type}" th:value="${type.developmentTypeId}">
 						</th:block>
 					</select>
-				</div>
+				</div> 
 				<div class="form-group">
 					<select class="selectpicker" data-live-search="true" id="filterDevTool" name="filterDevTool">
 						<option selected disabled>Filter by Tool</option>
 						<option value="-1">All</option>
 						<th:block th:each="tool: ${projectTechnologies}">
-							<option th:text="${tool.name}" th:value="${tool.id}" />
+							<option th:text="${tool.name}" th:value="${tool.id}">
 						</th:block>
 					</select>
 				</div>
@@ -40,8 +39,19 @@
 			<div class = "grid">
 				<th:block th:each = "project: ${projectList}">
 					<div class = "grid-item">
-						<div class="card card-flip" onmouseover = "initialiseMasonryGrid()">
-							<div class="card-back">
+						<div class="card card-flip">
+							<div class="card-front" onClick = "flipProjectCard(this)">
+								<div class="card-body">
+									<h3 th:text = "${project.name}" class = "projectTitle"></h3>
+									<span class = "flipButton">Span</span>
+									<h4>Project Description</h4>
+									<p th:text = "${project.description}"></p>
+									<div class="buttonContainer d-md-none">
+										<button class="flipButton">Flip</button>
+									</div>
+								</div>
+							</div>
+							<div class="card-back" onClick = "flipProjectCard(this)">
 								<div class="card-body">
 									<h3 th:text = "${project.name}"></h3>
 									<h4>Technologies Used</h4>
@@ -55,33 +65,23 @@
 									</div>
 								</div>
 							</div>
-							<div class="card-front">
-								<div class="card-body">
-									<h3 th:text = "${project.name}"></h3>
-									<h4>Project Description</h4>
-									<p th:text = "${project.description}"></p>
-									<div class="buttonContainer d-md-none">
-										<button class="flipButton">Flip</button>
-									</div>
-								</div>
-							</div>
+
 							<div th:if = "${project.databaseDesign != null}" class = "buttonContainer">
-								 <a th:href = "@{${project.databaseDesign.url}}" target = "_blank" class = "projectDatabaseButton">Database Schema</a>
+								 <button class = "projectDatabaseButton" th:onclick ="'displayDatabaseSchema(' + ${project.id} + ')'">Database Schema</button>
 							</div>
 							<div class = "row buttonContainer">
 								<a th:if = "${project.gitHubRepo != null}" th:href="@{${project.gitHubRepo.url}}" target = "_blank" class = "projectCodeButton">Code</a>
-								<a th:if = "${project.deployedProject != null}" th:href = "@{${project.deployedProject.url}}" target = "_blank "class="projectDeploymentButton">Deployment</a>
+								<a th:if = "${project.deployedProject != null}" th:href = "@{${project.deployedProject.url}}" target = "_blank" class="projectDeploymentButton">Deployment</a>
 							</div>
 						</div>
-						<br>
-					</div>
 					</div>
 				</th:block>
 			</div>
 		</div>
+	</div>
 	<div th:insert = "fragments :: footer"></div>
 	<!--JavaScript Scripts-->
 	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 	<div th:insert = "fragments :: jsScripts"></div>
-<body>
+</body>
 </html>

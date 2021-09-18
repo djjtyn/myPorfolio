@@ -171,13 +171,7 @@ fieldset {
   	position: relative;
 }
 
-.card-flip:hover .card-front {
-  transform: rotateY(-180deg);
-}
-  
-.card-flip:hover .card-back {
-  transform: rotateY(0deg);
-}
+
 
 /* Style the back side */
 .flip-card-back {
@@ -235,8 +229,13 @@ fieldset {
 }
 
 /*Styling for MyProjects Page*/
+.grid {
+	min-width:100%;
+}
 .grid-item {
 	width:100%;
+	height:auto;
+	margin:1em 0;
 }
 
 @media only screen and (min-width:768px) {
@@ -245,7 +244,9 @@ fieldset {
   }
 }
 
-
+.projects .card {
+	overflow:hidden;
+}
 
 .projects .card-front {
 	position:relative;

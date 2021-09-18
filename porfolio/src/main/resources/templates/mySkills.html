@@ -41,7 +41,7 @@
 			<!--Create a card for each skill in the database-->
 			<th:block th:each="skill: ${skillList}">
 				<div class="col-sm-3">
-					<div class="card card-flip">
+					<div class="card card-flip" onmouseenter = " flipSkillCard(this)">
 						<div class="card-front">
 							<div class="card-body">
 								<h3 th:text="${skill.name}"></h3>
